@@ -18,7 +18,7 @@ function Navbar() {
           <Link to="/customers">Customers</Link>
         </li>
         <li>
-          <Link to="/payments">Payments</Link>
+          <Link to="/transactions">Transactions</Link>
         </li>
         <li>
           <Link to="/services">Services</Link>

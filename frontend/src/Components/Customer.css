@@ -10,7 +10,7 @@
 }
 
 table{
-    height: 100vh;
+    height: auto;
     background-color: grey;
 }
 th{

@@ -4,8 +4,10 @@ const PORT = process.env.port || 8000;
 const router = express.Router();
 const path = require("path");
 require("./models/user");
+require("./models/history");
 const mongoose = require("mongoose");
 const CUSTOMERS = mongoose.model("CUSTOMERS");
+const HISTORY = mongoose.model("HISTORY");
 require('dotenv').config();
 const MONGO_URL = process.env.MONGO_URL
 
@@ -38,6 +40,11 @@ mongoose.connection.on("error", () => {
 
 router.get("/showcustomers", (req, res) => {
   CUSTOMERS.find().then((data) => {
+    res.json(data);
+  });
+});
+router.get("/showhistory", (req, res) => {
+  HISTORY.find().then((data) => {
     res.json(data);
   });
 });
@@ -77,6 +84,28 @@ router.post("/transfermoney", (req, res) => {
             { $set: { balance: receiverdata[0].balance + Number(req.body.amount)} }
           ).then((receiverupdate)=>
           {
+                //adding history
+                const history = new HISTORY({
+                  sender: senderdata[0].username,
+                  amount: req.body.amount,
+                  receiver: receiverdata[0].username,
+                  datetime: new Date().toLocaleString('en-IN')
+                  // accountno: req.body.accountno,
+                });
+              
+                history
+                  .save()
+                  .then((data) => {
+                    console.log("account created");
+                    res.json({ message: "saves success" });
+                  })
+                  .catch((err) => {
+                    error: "error saving data";
+                  });
+
+
+
+                //
             res.json({successmsg: 'transferred successfullyy'})
           })
 
@@ -103,6 +132,28 @@ router.post("/adddata", (req, res) => {
   });
 
   user
+    .save()
+    .then((data) => {
+      console.log("account created");
+      res.json({ message: "saves success" });
+    })
+    .catch((err) => {
+      error: "error saving data";
+    });
+});
+router.post("/addhistory", (req, res) => {
+  console.log(req.body);
+  console.log(typeof req.body.response);
+  console.log("saving new user account");
+  const history = new HISTORY({
+    sender: req.body.sender,
+    amount: req.body.amount,
+    receiver: req.body.receiver,
+    datetime: new Date().toLocaleString('en-IN')
+    // accountno: req.body.accountno,
+  });
+
+  history
     .save()
     .then((data) => {
       console.log("account created");

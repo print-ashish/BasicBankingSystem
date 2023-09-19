@@ -5,6 +5,7 @@ import { Routes } from "react-router-dom";
 import Customer from './Components/Customer';
 import Navbar from './Components/Navbar';
 import Transfer from './Components/Transfer';
+import History from './Components/History'
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
   <Route
  path="/transfer"
  element={<Transfer />}
+ />
+  <Route
+ path="/transactions"
+ element={<History />}
  />
 
  
