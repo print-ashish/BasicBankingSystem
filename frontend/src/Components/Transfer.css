@@ -1,0 +1,39 @@
+.transfer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* justify-content: center; */
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(195, 195, 245);
+
+}
+.transfercard
+{
+    /* width: 100%; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+input{
+    margin: 2px ;
+    outline: none;
+    border : none;
+    /* width: 10%; */
+    height: 30px;
+    font-size: 15px;
+    padding-left: 5px;
+}
+.tranferbtn > button{
+    width: 130%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #007BFF;
+    border: 2px solid #6c6e70;
+}
+button:hover{
+    background-color: #007BFF;
+    cursor: pointer;
+    color: white;
+    border: 2px solid #616365;
+}

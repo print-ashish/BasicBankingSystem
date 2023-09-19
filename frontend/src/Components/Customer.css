@@ -1,0 +1,63 @@
+.cust_container
+{
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4px;
+    /* justify-content: space-around; */
+
+}
+
+table{
+    height: 100vh;
+    background-color: grey;
+}
+th{
+    height: 60px;
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #007BFF;
+    width: 100vw;
+    
+}
+
+#viewcust
+{
+    background-color: #007BFF;
+    width: 80%;
+    height: 50%;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+#viewcust:hover{
+    color: white;
+    background-color: #007BFF;
+
+
+    /* outline: 1px solid white; */
+}
+td
+{
+    /* background-color: rgb(169, 218, 218); */
+    font-size: 20px;
+    padding-left:  24px;
+    font-weight: 500;
+    /* text-align: center; */
+}
+/* CSS for hovering over table rows */
+.table-row
+{
+        background-color: rgb(169, 218, 218);
+
+}
+
+.table-row:hover {
+    background-color: #007BFF;
+        cursor: pointer; 
+
+}
+  
